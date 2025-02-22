@@ -3,7 +3,8 @@
 The WeatherApi lets you get weather data for a city using a single method: getWeatherCity(). You’ll need an OpenWeatherMap API key to start.
 
 ## Getting Started
-Create a WeatherApi instance with your API key and a behavior mode:\n
+Create a WeatherApi instance with your API key and a behavior mode:
+
 Use ON_DEMAND to fetch weather only when you ask.
 Use POLLING to automatically refresh outdated cache data.
 
