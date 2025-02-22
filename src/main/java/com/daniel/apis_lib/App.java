@@ -2,8 +2,7 @@ package com.daniel.apis_lib;
 
 import com.daniel.apis_lib.apis.weather_api.WeatherApi;
 import com.daniel.apis_lib.apis.weather_api.enums.Behaviors;
-import com.daniel.apis_lib.apis.weather_api.signatures.WeatherObj;
-import org.json.JSONObject;
+import com.daniel.apis_lib.apis.weather_api.pojoClasses.WeatherObj;
 
 public class App {
     public static void main(String[] args) {

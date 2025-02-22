@@ -2,8 +2,8 @@ package com.daniel.apis_lib.apis.weather_api;
 
 import com.daniel.apis_lib.apis.weather_api.enums.Behaviors;
 import com.daniel.apis_lib.apis.weather_api.interfaces.WeatherApiInterface;
-import com.daniel.apis_lib.apis.weather_api.signatures.City;
-import com.daniel.apis_lib.apis.weather_api.signatures.WeatherObj;
+import com.daniel.apis_lib.apis.weather_api.pojoClasses.City;
+import com.daniel.apis_lib.apis.weather_api.pojoClasses.WeatherObj;
 import com.daniel.apis_lib.apis.weather_api.validator.WeatherApiValidator;
 import com.daniel.apis_lib.exeptions.NotValidApiKeyException;
 import com.daniel.apis_lib.exeptions.NotValidUrlParameterException;
@@ -29,6 +29,8 @@ import static java.time.temporal.ChronoUnit.SECONDS;
 
 public class WeatherApi implements WeatherApiInterface {
 
+    final static private int CACHE_CAPACITY = 10;
+    final static private int TIMEOUT_IN_SECONDS = 10;
     final public static ArrayList<WeatherApi> weatherApiCache = new ArrayList<>();
     private final List<City> cities = Collections.synchronizedList(new ArrayList<>());
     final private WeatherApiValidator validator = new WeatherApiValidator();
@@ -176,7 +178,7 @@ public class WeatherApi implements WeatherApiInterface {
             weatherObj = sendRequestToGetWeatherCityJSON(cityName, lat, lon);
         }
 
-        if ((cities.size() > 9)) {
+        if ((cities.size() >= CACHE_CAPACITY)) {
 
             cities.remove(0);
 
@@ -197,7 +199,7 @@ public class WeatherApi implements WeatherApiInterface {
 
         HttpRequest request = HttpRequest.newBuilder()
                 .uri(uri)
-                .timeout(Duration.of(10, SECONDS))
+                .timeout(Duration.of(TIMEOUT_IN_SECONDS, SECONDS))
                 .GET()
                 .build();
 

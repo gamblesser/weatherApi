@@ -1,6 +1,4 @@
-package com.daniel.apis_lib.apis.weather_api.signatures;
-
-import org.json.JSONObject;
+package com.daniel.apis_lib.apis.weather_api.pojoClasses;
 
 import java.time.LocalDateTime;
 

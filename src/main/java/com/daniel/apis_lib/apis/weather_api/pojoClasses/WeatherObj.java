@@ -1,4 +1,4 @@
-package com.daniel.apis_lib.apis.weather_api.signatures;
+package com.daniel.apis_lib.apis.weather_api.pojoClasses;
 
 
 import java.util.ArrayList;
