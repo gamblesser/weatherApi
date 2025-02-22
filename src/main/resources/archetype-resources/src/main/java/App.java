@@ -1,4 +1,4 @@
-package com.daniel.apis_lib;
+package com.daniel.weather_api;
 
 /**
  * Hello world!

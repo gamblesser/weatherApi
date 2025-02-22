@@ -1,7 +1,7 @@
-package com.daniel.apis_lib.apis.weather_api.validator;
+package com.daniel.weather_api.validator;
 
-import com.daniel.apis_lib.exeptions.NotValidApiKeyException;
-import com.daniel.apis_lib.exeptions.NotValidUrlParameterException;
+import com.daniel.weather_api.exeptions.NotValidApiKeyException;
+import com.daniel.weather_api.exeptions.NotValidUrlParameterException;
 
 import java.net.http.HttpResponse;
 

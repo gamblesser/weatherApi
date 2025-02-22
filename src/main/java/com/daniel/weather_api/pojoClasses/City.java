@@ -1,4 +1,4 @@
-package com.daniel.apis_lib.apis.weather_api.pojoClasses;
+package com.daniel.weather_api.pojoClasses;
 
 import java.time.LocalDateTime;
 
@@ -6,7 +6,6 @@ public class City {
     private String cityName;
     private Double lat;
     private Double lon;
-    //private JSONObject weatherObj;
     private WeatherObj weatherObj;
     private LocalDateTime createdDateTime;
 

@@ -1,4 +1,4 @@
-package com.daniel.apis_lib.apis.weather_api.enums;
+package com.daniel.weather_api.enums;
 
 public enum Behaviors {
     DEMAND,

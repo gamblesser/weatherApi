@@ -1,6 +1,5 @@
-package com.daniel.apis_lib.exeptions;
+package com.daniel.weather_api.exeptions;
 
-import java.io.IOException;
 
 public class NotValidApiKeyException extends Exception {
     public NotValidApiKeyException() {

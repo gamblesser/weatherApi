@@ -1,12 +1,12 @@
-package com.daniel.apis_lib.apis.weather_api;
+package com.daniel.weather_api;
 
-import com.daniel.apis_lib.apis.weather_api.enums.Behaviors;
-import com.daniel.apis_lib.apis.weather_api.interfaces.WeatherApiInterface;
-import com.daniel.apis_lib.apis.weather_api.pojoClasses.City;
-import com.daniel.apis_lib.apis.weather_api.pojoClasses.WeatherObj;
-import com.daniel.apis_lib.apis.weather_api.validator.WeatherApiValidator;
-import com.daniel.apis_lib.exeptions.NotValidApiKeyException;
-import com.daniel.apis_lib.exeptions.NotValidUrlParameterException;
+import com.daniel.weather_api.enums.Behaviors;
+import com.daniel.weather_api.interfaces.WeatherApiInterface;
+import com.daniel.weather_api.pojoClasses.City;
+import com.daniel.weather_api.pojoClasses.WeatherObj;
+import com.daniel.weather_api.validator.WeatherApiValidator;
+import com.daniel.weather_api.exeptions.NotValidApiKeyException;
+import com.daniel.weather_api.exeptions.NotValidUrlParameterException;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
