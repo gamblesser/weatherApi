@@ -4,7 +4,9 @@ The WeatherApi lets you get weather data for a city using a single method: getWe
 
 Getting Started
 Create a WeatherApi instance with your API key and a behavior mode:
+
 Use ON_DEMAND to fetch weather only when you ask.
+
 Use POLLING to automatically refresh outdated cache data.
 
 Call getWeatherCity() with a city name (like "London") to get the weather.
