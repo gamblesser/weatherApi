@@ -5,14 +5,6 @@ The WeatherApi lets you get weather data for a city using a single method: getWe
 ## Getting Started
 *Create a WeatherApi instance with your API key and a behavior mode:*
 
-```
-import com.daniel.weather_api.enums.Behaviors;
-import com.daniel.weather_api.impl.WeatherApi;
-import com.daniel.weather_api.interfaces.WeatherApiInterface;
-
- WeatherApiInterface weatherApi = new WeatherApi(String apiKey,Behaviors behavior);
-
-```
 Use **ON_DEMAND** to fetch weather only when you ask.
 Use **POLLING** to automatically refresh outdated cache data.
 
