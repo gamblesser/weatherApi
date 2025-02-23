@@ -4,7 +4,8 @@ The WeatherApi lets you get weather data for a city using a single method: getWe
 
 ## Getting Started
 
-*Maven Dependency*
+*Maven Dependency:*
+
 ```
 <dependency>
 <groupId>org.daniel.spring.mvc</groupId>
@@ -14,11 +15,14 @@ The WeatherApi lets you get weather data for a city using a single method: getWe
 
 ```
 
-*Create a WeatherApi instance with your API key and a behavior mode:*
+*Create a WeatherApi using WeatherApiInterface instance with your API key and a behavior mode:*
 
 Use **ON_DEMAND** to fetch weather only when you ask.
 Use **POLLING** to automatically refresh outdated cache data.
 
+```
+WeatherApiInterface weatherApi = new WeatherApi(String apiKey,Behaviors behavior);
+```
 Call **getWeatherCity(String cityName)** with a city name (like "London") to get the weather.
 
 ## What You Get
