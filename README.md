@@ -4,11 +4,15 @@ The WeatherApi lets you get weather data for a city using a single method: getWe
 
 ## Getting Started
 *Create a WeatherApi instance with your API key and a behavior mode:*
----
+
+```
+import com.daniel.weather_api.enums.Behaviors;
+import com.daniel.weather_api.impl.WeatherApi;
+import com.daniel.weather_api.interfaces.WeatherApiInterface;
 
  WeatherApiInterface weatherApi = new WeatherApi(String apiKey,Behaviors behavior);
 
----
+```
 Use **ON_DEMAND** to fetch weather only when you ask.
 Use **POLLING** to automatically refresh outdated cache data.
 
@@ -18,7 +22,14 @@ Call **getWeatherCity(String cityName)** with a city name (like "London") to get
 A WeatherObj with weather details (temperature, conditions, etc.) if successful.
 null if the city isn’t found or data isn’t available.
 
----
+
+
+## What Can Go Wrong
+Invalid City Name: If the city name is empty or null, you’ll get an error message like "Parameter cannot be null or empty".
+Invalid API Key: If the key is wrong, you’ll see an error like "Invalid API key".
+
+## Examples 
+```
 import com.daniel.weather_api.enums.Behaviors;
 import com.daniel.weather_api.impl.WeatherApi;
 import com.daniel.weather_api.interfaces.WeatherApiInterface;
@@ -104,8 +115,4 @@ public class WeatherApiExample {
         }
     }
 }
----
-
-## What Can Go Wrong
-Invalid City Name: If the city name is empty or null, you’ll get an error message like "Parameter cannot be null or empty".
-Invalid API Key: If the key is wrong, you’ll see an error like "Invalid API key".
+```
