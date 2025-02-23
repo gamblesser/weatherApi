@@ -1,7 +1,7 @@
 package com.daniel.weather_api.enums;
 
 public enum Behaviors {
-    DEMAND,
+    ON_DEMAND,
     POLLING
 
 

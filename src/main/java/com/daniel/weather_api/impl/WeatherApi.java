@@ -1,4 +1,4 @@
-package com.daniel.weather_api;
+package com.daniel.weather_api.impl;
 
 import com.daniel.weather_api.enums.Behaviors;
 import com.daniel.weather_api.interfaces.WeatherApiInterface;
@@ -79,12 +79,10 @@ public class WeatherApi implements WeatherApiInterface {
 
 
 
-    public Map<String, Double> getCityLonLat(String cityName) {
-        try {
+    public Map<String, Double> getCityLonLat(String cityName) throws NotValidApiKeyException, NotValidUrlParameterException {
+
             validator.isValidParameter(cityName);
-        } catch (NotValidUrlParameterException e) {
-            throw new RuntimeException(e);
-        }
+
 
         String urlString = String.format("http://api.openweathermap.org/geo/1.0/direct?q=%s&limit=1&appid=%s", cityName, apiKey);
 
@@ -96,11 +94,9 @@ public class WeatherApi implements WeatherApiInterface {
             throw new RuntimeException(e);
         }
 
-        try {
+
             validator.isValidStatusCodeResponse(response);
-        } catch (NotValidApiKeyException e) {
-            throw new RuntimeException(e);
-        }
+
 
         JSONObject jsonCity = null;
         try {
@@ -127,17 +123,15 @@ public class WeatherApi implements WeatherApiInterface {
     }
 
 
-    public WeatherObj getAndCacheWeatherCity(String cityName) {
+    public WeatherObj getWeatherCity(String cityName) throws NotValidUrlParameterException, NotValidApiKeyException {
         WeatherObj weatherObj =null;
         Double lon = null;
         Double lat = null;
 
 
-        try {
+
             validator.isValidParameter(cityName);
-        } catch (NotValidUrlParameterException e) {
-            throw new RuntimeException(e);
-        }
+
 
 
         if (behavior == Behaviors.POLLING) {
@@ -212,12 +206,10 @@ public class WeatherApi implements WeatherApiInterface {
     }
 
 
-    private WeatherObj sendRequestToGetWeatherCityJSON(String cityName, Double lat, Double lon) {
-        try {
+    private WeatherObj sendRequestToGetWeatherCityJSON(String cityName, Double lat, Double lon) throws NotValidUrlParameterException, NotValidApiKeyException {
+
             validator.isValidParameter(cityName);
-        } catch (NotValidUrlParameterException e) {
-            throw new RuntimeException(e);
-        }
+
 
 
         String urlString = String.format("https://api.openweathermap.org/data/2.5/weather?lat=%f&lon=%f&appid=%s", lat, lon, apiKey);
@@ -232,11 +224,9 @@ public class WeatherApi implements WeatherApiInterface {
             throw new RuntimeException(e);
         }
 
-        try {
-            validator.isValidStatusCodeResponse(response);
-        } catch (NotValidApiKeyException e) {
-            throw new RuntimeException(e);
-        }
+
+        validator.isValidStatusCodeResponse(response);
+
 
         //JSONObject weatherObj = null;
         WeatherObj weatherObj = null;
