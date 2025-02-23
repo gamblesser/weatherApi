@@ -3,6 +3,17 @@
 The WeatherApi lets you get weather data for a city using a single method: getWeatherCity(). You’ll need an OpenWeatherMap API key to start.
 
 ## Getting Started
+
+*Maven Dependency*
+```
+<dependency>
+<groupId>org.daniel.spring.mvc</groupId>
+<artifactId>weather_api</artifactId>
+<version>1.0-SNAPSHOT</version>
+</dependency>
+
+```
+
 *Create a WeatherApi instance with your API key and a behavior mode:*
 
 Use **ON_DEMAND** to fetch weather only when you ask.
