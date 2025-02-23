@@ -22,6 +22,8 @@ Invalid API Key: If the key is wrong, you’ll see an error like "Invalid API ke
 
 ## Examples 
 ```
+package com.daniel.weather_api;
+
 import com.daniel.weather_api.enums.Behaviors;
 import com.daniel.weather_api.impl.WeatherApi;
 import com.daniel.weather_api.interfaces.WeatherApiInterface;
@@ -29,17 +31,16 @@ import com.daniel.weather_api.pojoClasses.WeatherObj;
 import com.daniel.weather_api.exeptions.NotValidApiKeyException;
 import com.daniel.weather_api.exeptions.NotValidUrlParameterException;
 
-public class WeatherApiExample {
+public class Main {
     public static void main(String[] args) {
         // Step 1: Initialize the API with a real API key and ON_DEMAND mode
         WeatherApiInterface weatherApi = new WeatherApi("your-openweathermap-api-key", Behaviors.ON_DEMAND);
 
         // Example 1: Basic weather check for New York
         try {
-            WeatherObj weather = weatherApi.getWeatherCity("New York");
+            WeatherObj weather = weatherApi.getWeatherCity("New-York");
             if (weather != null) {
-                System.out.println("Temperature in New York: " + weather.getMain().getTemp() + "°C");
-                System.out.println("Condition: " + weather.getWeather().get(0).getDescription());
+                System.out.println("Temperature in New York: " + weather.main.temp + "°C");
             } else {
                 System.out.println("Weather not available for New York.");
             }
@@ -56,11 +57,11 @@ public class WeatherApiExample {
         try {
             // First call: Fetches and caches
             WeatherObj firstCall = weatherApi.getWeatherCity("Tokyo");
-            System.out.println("First call - Tokyo temp: " + firstCall.getMain().getTemp() + "°C");
+            System.out.println("First call - Tokyo temp: " + firstCall.main.temp + "°C");
 
             // Second call: Should use cache if within 10 minutes
             WeatherObj secondCall = weatherApi.getWeatherCity("Tokyo");
-            System.out.println("Second call - Tokyo temp: " + secondCall.getMain().getTemp() + "°C");
+            System.out.println("Second call - Tokyo temp: " + secondCall.main.temp + "°C");
         } catch (NotValidUrlParameterException | NotValidApiKeyException e) {
             System.err.println("Error: " + e.getMessage());
         }
@@ -96,7 +97,7 @@ public class WeatherApiExample {
             for (String city : cities) {
                 WeatherObj weather = weatherApi.getWeatherCity(city);
                 if (weather != null) {
-                    System.out.println(city + " temp: " + weather.getMain().getTemp() + "°C");
+                    System.out.println(city + " temp: " + weather.main.temp + "°C");
                 }
             }
             // After 10 cities, "London" should be removed from cache
